@@ -12,3 +12,18 @@ class Product {
   }
 }const prod1 = new Product("Laptop", 101, 1200, 10);
 console.log(prod1.getDetails());
+
+class Order {
+  constructor(orderId, product, quantity) {
+    this.orderId = orderId;
+    this.product = product; // instance of Product class
+    this.quantity = quantity;this.product.updateStock(this.quantity);
+  }this.product.updateStock(this.quantity);
+  }getOrderDetails() {
+    const totalPrice = this.product.price * this.quantity;
+    return `Order ID: ${this.orderId}, Product: ${this.product.name}, Quantity: ${this.quantity}, Total Price: $${totalPrice}`;
+  }
+}
+const prod1 = new Product("Laptop", 101, 1200, 10);
+const order1 = new Order(501, prod1, 2);
+console.log(order1.getOrderDetails());
