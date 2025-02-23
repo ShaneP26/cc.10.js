@@ -27,3 +27,19 @@ class Order {
 const prod1 = new Product("Laptop", 101, 1200, 10);
 const order1 = new Order(501, prod1, 2);
 console.log(order1.getOrderDetails());
+
+class Inventory {
+  constructor() {
+    this.products = []; // Array to store Product instances
+  }
+addProduct(product) {
+    this.products.push(product);
+  }listProducts() {
+    this.products.forEach(product => {
+      console.log(product.getDetails());
+    });
+  }
+}const inventory = new Inventory();
+const prod1 = new Product("Laptop", 101, 1200, 10);
+inventory.addProduct(prod1);
+inventory.listProducts();
