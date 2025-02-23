@@ -2,7 +2,7 @@ class Product {
   constructor(name, id, price, stock) {
     this.name = name;
     this.id = id;
-    this.price = price;
+    this.price = price; 
     this.stock = stock;
   }getDetails() {
     return `Product: ${this.name}, ID: ${this.id}, Price: $${this.price}, Stock: ${this.stock}`;
