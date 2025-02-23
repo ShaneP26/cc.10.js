@@ -43,3 +43,31 @@ addProduct(product) {
 const prod1 = new Product("Laptop", 101, 1200, 10);
 inventory.addProduct(prod1);
 inventory.listProducts();
+class Inventory {
+  constructor() {
+    this.products = []; // Array to store Product instances
+    this.orders = []; // Array to store Order instances
+  }
+
+   addProduct(product) {
+    this.products.push(product);
+  }listProducts() {
+    this.products.forEach(product => {
+      console.log(product.getDetails());
+    });
+  }placeOrder(orderId, product, quantity) {
+    if (product.stock >= quantity) {
+      const order = new Order(orderId, product, quantity);
+      this.orders.push(order);
+    } else {
+      console.log("Not enough stock available to place the order.");
+    }
+  } listOrders() {
+    this.orders.forEach(order => {
+      console.log(order.getOrderDetails());
+    });
+  }
+}
+const inventory = new Inventory();
+const prod1 = new Product("Laptop", 101, 1200, 5);
+inventory.addProduct(prod1);
