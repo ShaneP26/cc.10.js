@@ -71,3 +71,36 @@ class Inventory {
 const inventory = new Inventory();
 const prod1 = new Product("Laptop", 101, 1200, 5);
 inventory.addProduct(prod1);
+class Inventory {
+  constructor() {
+    this.products = []; // Array to store Product instances
+    this.orders = []; // Array to store Order instances
+  }addProduct(product) {
+    this.products.push(product);
+  }listProducts() {
+    this.products.forEach(product => {
+      console.log(product.getDetails());
+    });
+  }placeOrder(orderId, product, quantity) {
+    if (product.stock >= quantity) {
+      const order = new Order(orderId, product, quantity);
+      this.orders.push(order);
+    } else {
+      console.log("Not enough stock available to place the order.");
+    }
+  }listOrders() {
+    this.orders.forEach(order => {
+      console.log(order.getOrderDetails());
+    });
+  }restockProduct(productId, quantity) {
+    const product = this.products.find(prod => prod.id === productId);
+    if (product) {
+      product.stock += quantity;
+      console.log(`Product ID: ${productId} restocked by ${quantity} units.`);
+    } else {
+      console.log("Product not found.");
+    }
+  }
+}const inventory = new Inventory();
+const prod1 = new Product("Laptop", 101, 1200, 3);
+inventory.addProduct(prod1);
